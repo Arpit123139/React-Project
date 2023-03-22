@@ -8,15 +8,20 @@ import React, { useState } from 'react';
 const ControlledInputs = () => {
   const [person, setPerson] = useState({ firstName: '', email: '', age: '' });
   const [people, setPeople] = useState([]);
+
+  //handling everything with single handler....
+  
   const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
+    // console.log("NAME ",name)
+    // console.log("VALUE ",value)
     setPerson({ ...person, [name]: value });
   };
   const handleSubmit = (e) => {
     e.preventDefault();
     if (person.firstName && person.email && person.age) {
-      const newPerson = { ...person, id: new Date().getTime().toString() };
+      const newPerson = { ...person, id: new Date().getTime().toString() };         //rest of the property are already set on line 16
       setPeople([...people, newPerson]);
       setPerson({ firstName: '', email: '', age: '' });
     }

@@ -6,7 +6,7 @@ const Person = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    const newPerson = data.find((person) => person.id === parseInt(id));
+    const newPerson = data.find((person) => person.id === parseInt(id));    // In params the id is comming as a String but it is stored as a Integer value 
     setName(newPerson.name);
   }, []);
   return (
